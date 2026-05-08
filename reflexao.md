@@ -4,5 +4,5 @@ o emoji que a IA colocou nao teria manutenção gerencia e colocado no codigo o 
 gerencia muitos if na pagina etc.
 
 
-Apos a atualização ficou uito melhor ocm componente pois o mesmo interage com a lista de frutas 
-e exibe.
+
+Agora, a interface está totalmente livre dos dados, utilizando props para exibir uma lista dinâmica de objetos isso elimina a redundância podendo adicionar centenas de itens para o cardapio.

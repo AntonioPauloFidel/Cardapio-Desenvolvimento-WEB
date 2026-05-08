@@ -1,7 +1,7 @@
 import React from 'react';
+import Botao from "../button";
 
-// Este componente representa um único item da lista
-const ItemCardapio = ({ fruta, icone, preco, categoria }) => {
+const ItemCardapio = ({ fruta, icone, preco, categoria, onAdicionar }) => {
   return (
     <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
       <div className="text-4xl mb-4">{icone}</div>
@@ -13,9 +13,11 @@ const ItemCardapio = ({ fruta, icone, preco, categoria }) => {
         <span className="text-gray-900 font-black text-xl">
           R$ {preco.toFixed(2)}
         </span>
-        <button className="bg-gray-900 text-white text-xs px-3 py-2 rounded-lg font-bold hover:bg-green-600 transition-colors">
-          Comprar
-        </button>
+        
+        {/* Quando clicar no botão, ele avisa o componente Pai */}
+        <Botao onClick={onAdicionar}>
+          Adicionar
+        </Botao>
       </div>
     </div>
   );

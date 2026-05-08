@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react'; // Importamos o useState aqui
 import ItemCardapio from "./components/ItemCardapio";
+
 const ListaCardapio = () => {
+  // Criamos o estado do contador começando em 0
+  const [carrinho, setCarrinho] = useState(0);
+
+  // Função para aumentar o contador
+  const adicionarAoCarrinho = () => {
+    setCarrinho(carrinho + 1);
+  };
 
   const produtos = [
     { id: 1, nome: "Abacate", icone: "🥑", preco: 8.50, categoria: "Gorduras" },
@@ -12,11 +20,14 @@ const ListaCardapio = () => {
 
   return (
     <section className="py-12 px-6 max-w-6xl mx-auto">
-      <h2 className="text-2xl font-bold mb-8 text-center uppercase tracking-tighter">
-        Seleção do Dia
-      </h2>
+      {/* Visual do Contador no topo */}
+      <div className="flex justify-between items-center mb-10 bg-green-50 p-4 rounded-2xl border border-green-100">
+        <h2 className="text-2xl font-bold uppercase tracking-tighter">Seleção do Dia</h2>
+        <div className="bg-green-600 text-white px-4 py-2 rounded-full font-bold shadow-lg shadow-green-200">
+          🛒 Itens no pedido: {carrinho}
+        </div>
+      </div>
       
-      {/* Grid que organiza os itens */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {produtos.map((produto) => (
           <ItemCardapio 
@@ -25,6 +36,8 @@ const ListaCardapio = () => {
             icone={produto.icone}
             preco={produto.preco}
             categoria={produto.categoria}
+            // Passamos a função de adicionar como uma prop!
+            onAdicionar={adicionarAoCarrinho}
           />
         ))}
       </div>
