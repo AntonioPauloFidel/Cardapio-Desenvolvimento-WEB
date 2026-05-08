@@ -6,3 +6,10 @@ gerencia muitos if na pagina etc.
 
 
 Agora, a interface está totalmente livre dos dados, utilizando props para exibir uma lista dinâmica de objetos isso elimina a redundância podendo adicionar centenas de itens para o cardapio.
+
+
+Se você mudar um let x = 0 para x = 1, o valor na memória muda, mas o navegador não entende isso;
+
+No app se ficasse em  dentro de cada ItemCardapio, um card não saberia o que o outro fez.
+
+tem um funcao adicionarAoCarrinho que chama o onClick do componente botao;
